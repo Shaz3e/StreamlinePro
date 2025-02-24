@@ -2792,16 +2792,16 @@
         },
         {
             "name": "owen-it/laravel-auditing",
-            "version": "v13.7.1",
+            "version": "v13.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/owen-it/laravel-auditing.git",
-                "reference": "627a7b7ddd2aa2d026be328595efa31301ad7d02"
+                "reference": "4f72181622683bc667bbdd2e5fa09cd376329af4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/owen-it/laravel-auditing/zipball/627a7b7ddd2aa2d026be328595efa31301ad7d02",
-                "reference": "627a7b7ddd2aa2d026be328595efa31301ad7d02",
+                "url": "https://api.github.com/repos/owen-it/laravel-auditing/zipball/4f72181622683bc667bbdd2e5fa09cd376329af4",
+                "reference": "4f72181622683bc667bbdd2e5fa09cd376329af4",
                 "shasum": ""
             },
             "require": {
@@ -2876,7 +2876,7 @@
                 "issues": "https://github.com/owen-it/laravel-auditing/issues",
                 "source": "https://github.com/owen-it/laravel-auditing"
             },
-            "time": "2025-02-18T16:00:52+00:00"
+            "time": "2025-02-21T14:58:02+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -10020,12 +10020,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
