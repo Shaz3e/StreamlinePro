@@ -22,10 +22,18 @@
                                 {!! shortTextWithOutHtml($download->description, 50) !!}
                             </p>
                             <p class="card-text">
-                                <a href="{{ asset('storage/' . $download->file_path) }}"
-                                    class="btn btn-sm btn-flat btn-success">
-                                    <i class="mdi mdi-download"></i> Download
-                                </a>
+                                @if ($download->file_path)
+                                    <a href="{{ asset('storage/' . $download->file_path) }}"
+                                        class="btn btn-sm btn-flat btn-success">
+                                        <i class="mdi mdi-download"></i> Download
+                                    </a>
+                                @endif
+                                @if ($download->download_link)
+                                    <a href="{{ $download->download_link }}" target="_blank"
+                                        class="btn btn-sm btn-flat btn-success">
+                                        <i class="mdi mdi-download"></i> Download
+                                    </a>
+                                @endif
                                 <a href="{{ route('downloads.show', $download->id) }}" class="btn btn-sm btn-flat btn-info">
                                     <i class="mdi mdi-eye"></i> View Details
                                 </a>

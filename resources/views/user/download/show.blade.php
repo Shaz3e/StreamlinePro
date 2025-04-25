@@ -21,9 +21,16 @@
                 </div>
                 {{-- /.card-body --}}
                 <div class="card-footer">
-                    <a href="{{ asset('storage/' . $download->file_path) }}" class="btn btn-sm btn-flat btn-success">
-                        <i class="mdi mdi-download"></i> Download
-                    </a>
+                    @if ($download->file_path)
+                        <a href="{{ asset('storage/' . $download->file_path) }}" class="btn btn-sm btn-flat btn-success">
+                            <i class="mdi mdi-download"></i> Download
+                        </a>
+                    @endif
+                    @if ($download->download_link)
+                        <a href="{{ $download->download_link }}" target="_blank" class="btn btn-sm btn-flat btn-success">
+                            <i class="mdi mdi-download"></i> Download
+                        </a>
+                    @endif
                     <small class="text-muted">Last updated {{ $download->updated_at->diffForHumans() }}</small>
                 </div>
             </div>

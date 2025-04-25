@@ -16,6 +16,7 @@ class Download extends Model
         'version',
         'file_path',
         'is_active',
+        'download_link',
     ];
 
     // SoftDeletes

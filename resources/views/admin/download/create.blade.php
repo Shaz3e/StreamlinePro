@@ -72,6 +72,21 @@
                         {{-- /.row --}}
 
                         <div class="row">
+                            <div class="col-12 mb-3">
+                                <div class="form-group">
+                                    <label for="download_link">Download Link (External)</label>
+                                    <input type="text" name="download_link" id="download_link" class="form-control"
+                                        value="{{ old('download_link') }}" maxlength="255">
+                                </div>
+                                @error('download_link')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            {{-- /.col --}}
+                        </div>
+                        {{-- /.row --}}
+
+                        <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="file_path">Attachments (optional)</label>

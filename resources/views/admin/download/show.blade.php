@@ -28,13 +28,37 @@
                             <td>{{ $download->version }}</td>
                         </tr>
                         <tr>
-                            <td>Download Link</td>
+                            <td>External Download Link</td>
                             <td>
+                                @if ($download->download_link)
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="download_link"
+                                            value="{{ $download->download_link }}" readonly>
+                                        <button class="btn btn-sm btn-flat btn-success"
+                                            onclick="copyToClipboard('download_link')">Click to Copy</button>
+                                    </div>
+
+                                    <!-- Bootstrap alert for showing the success message -->
+                                    <div class="alert alert-success alert-dismissible fade show d-none" id="copyAlert"
+                                        role="alert">
+                                        <strong>Success!</strong> The link has been copied to your clipboard.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                @else
+                                    <span class="badge bg-danger">Not Available</span>
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Download File</td>
+                            <td>
+                                @if ($download->file_path)
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" id="downloadLink"
+                                    <input type="text" class="form-control" id="file_path"
                                         value="{{ config('app.url') . '/' . $download->file_path }}" readonly>
-                                    <button class="btn btn-sm btn-flat btn-success" onclick="copyToClipboard()">Click to
-                                        Copy</button>
+                                    <button class="btn btn-sm btn-flat btn-success"
+                                        onclick="copyToClipboard('file_path')">Click to Copy</button>
                                 </div>
 
                                 <!-- Bootstrap alert for showing the success message -->
@@ -44,6 +68,10 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
+
+                                @else
+                                    <span class="badge bg-danger">Not Available</span>
+                                @endif
                             </td>
                         </tr>
                         <tr>
@@ -138,9 +166,9 @@
 
 @push('scripts')
     <script>
-        function copyToClipboard() {
-            // Get the download link element
-            var copyText = document.getElementById("downloadLink");
+        function copyToClipboard(inputId) {
+            // Get the input field element dynamically based on the inputId passed
+            var copyText = document.getElementById(inputId);
 
             // Select the text in the input field
             copyText.select();

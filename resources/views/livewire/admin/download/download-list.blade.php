@@ -43,6 +43,7 @@
                                     <th>Title</th>
                                     <th>Version</th>
                                     <th>Download</th>
+                                    <th>Download Link</th>
                                     <th>Clients</th>
                                     @if (!$showDeleted)
                                         <th>Status</th>
@@ -63,9 +64,26 @@
                                         <td>{{ $download->title }}</td>
                                         <td>{{ $download->version }}</td>
                                         <td>
-                                            <a href="{{ asset('storage/' . $download->file_path) }}">
-                                                <i class="ri-download-cloud-line"></i> <small>Download</small>
-                                            </a>
+                                            @if ($download->file_path)
+                                                <a href="{{ asset('storage/' . $download->file_path) }}">
+                                                    <i class="ri-download-cloud-line"></i> <small>Download</small>
+                                                </a>
+                                            @else
+                                                <span class="badge bg-danger"></span>
+                                                <small>Not Available</small>
+                                                </span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($download->download_link)
+                                                <a href="{{ $download->download_link }}" target="_blank">
+                                                    <i class="ri-download-cloud-line"></i> <small>Download Link</small>
+                                                </a>
+                                            @else
+                                                <span class="badge bg-danger"></span>
+                                                <small>Not Available</small>
+                                                </span>
+                                            @endif
                                         </td>
                                         <td>
                                             @foreach ($download->users as $user)
